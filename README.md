@@ -11,8 +11,7 @@ positions, animations, and backgrounds are left untouched.
 [Quick Start](#quick-start) •
 [Usage](#usage) •
 [How It Works](#how-it-works) •
-[Limitations](#limitations) •
-[Roadmap](#roadmap)
+[Limitations](#limitations)
 
 </div>
 
