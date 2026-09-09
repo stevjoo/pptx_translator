@@ -1,0 +1,24 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+env/
+
+# Argos Translate downloaded models (large, shouldn't be committed)
+.local/share/argos-translate/
+*.argosmodel
+
+# Output / test files
+output.pptx
+*.pptx
+!examples/*.pptx
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/

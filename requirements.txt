@@ -1,0 +1,14 @@
+# Core (always required)
+python-pptx>=0.6.23
+Pillow>=10.0.0
+
+# --- Translation engines: install only the one you plan to use ---
+
+# Free, fully offline, no API key (recommended if you have no budget)
+# argostranslate>=1.9.6
+
+# Free, no API key, but relies on an unofficial public endpoint
+# deep-translator>=1.11.4
+
+# Paid, best quality, needs ANTHROPIC_API_KEY
+# anthropic>=0.34.0
