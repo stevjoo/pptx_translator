@@ -3,23 +3,30 @@ cli.py
 
 Usage (free, offline, no API key -- default):
     pip install argostranslate
-    python -m pptx_translator.cli input.pptx output.pptx
+    python cli.py input.pptx output.pptx
 
 Usage (free, unofficial Google endpoint):
     pip install deep-translator
-    python -m pptx_translator.cli input.pptx output.pptx --engine google_free
+    python cli.py input.pptx output.pptx --engine google_free
 
 Usage (paid, best quality, context-aware):
     pip install anthropic
-    export ANTHROPIC_API_KEY=sk-ant-...
-    python -m pptx_translator.cli input.pptx output.pptx --engine anthropic
+    # Linux/macOS: export ANTHROPIC_API_KEY=sk-ant-...
+    # Windows:     $env:ANTHROPIC_API_KEY="sk-ant-..."
+    python cli.py input.pptx output.pptx --engine anthropic
 """
 
 import argparse
 import json
 import sys
 
-from .translator import translate_pptx
+if __package__ is None or __package__ == "":
+    import os
+    import sys
+    sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
+    from pptx_translator.translator import translate_pptx
+else:
+    from .translator import translate_pptx
 
 
 def main():

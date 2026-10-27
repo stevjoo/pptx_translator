@@ -51,7 +51,7 @@ cd pptx_translator
 pip install -r requirements.txt
 pip install argostranslate          # free, offline translation engine
 
-python -m pptx_translator.cli input.pptx output.pptx
+python cli.py input.pptx output.pptx
 ```
 
 That's it - no API key, no cost. The first run downloads the Chinese => English
@@ -69,18 +69,25 @@ that works fully offline.
 | `anthropic` | Paid | Yes | Best, understands full slide context | Needs `ANTHROPIC_API_KEY` |
 
 ```bash
-# Free, offline (default)
-python -m pptx_translator.cli input.pptx output.pptx
+# 1. Free, offline (default)
+python cli.py input.pptx output.pptx
 
-# Free, unofficial Google endpoint
+# 2. Free, unofficial Google endpoint
 pip install deep-translator
-python -m pptx_translator.cli input.pptx output.pptx --engine google_free
+python cli.py input.pptx output.pptx --engine google_free
 
-# Paid, best quality, context-aware across the whole slide
+# 3. Paid, best quality, context-aware across the whole slide
 pip install anthropic
+
+# Linux / macOS:
 export ANTHROPIC_API_KEY=sk-ant-...
-python -m pptx_translator.cli input.pptx output.pptx --engine anthropic
+# Windows (PowerShell):
+$env:ANTHROPIC_API_KEY="sk-ant-..."
+
+python cli.py input.pptx output.pptx --engine anthropic
 ```
+
+> **Note on module execution:** If you prefer running as a module (`python -m pptx_translator.cli`), either run from the parent directory or install in editable mode with `pip install -e .`. When working directly inside the cloned folder, `python cli.py` is the simplest way.
 
 ### Flags
 
